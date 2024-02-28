@@ -1,0 +1,18 @@
+SMTP Commands or Requests:
+
+HELO/EHLO: Initiates the SMTP session conversation. The client greets the server and introduces itself. Use HELO followed by the domain name or IP address of the SMTP client. Example: HELO client.net or EHLO client.net (for servers supporting ESMTP).
+MAIL FROM: Starts a mail transfer. Specify the sender mailbox (reverse-path). Optional parameters can be added. Example: MAIL FROM "test@client.net"
+RCPT TO: Specifies the recipient. Use RCPT TO followed by the destination mailbox (forward-path). For multiple recipients, use this command separately for each recipient. Example: RCPT TO "user@recipient.net"
+DATA: Asks the server for permission to transfer mail data. The response code 354 grants permission, and the client sends the email contents line by line. Terminate with a period (.). Example:
+DATA
+Date: Wed, 30 July 2019 06:04:34
+From: test@client.net
+Subject: How SMTP works
+To: user@recipient.net
+Body text
+.
+NOOP: Used to check if the server responds. The server replies with 250 OK.
+HELP: Requests a list of supported commands. Can be used with an argument for specific command details. Example: HELP
+VRFY and EXPN: VRFY verifies mailbox existence on the local host.
+RSET: It resets the SMTP connection to the initial states. It erases all the buffers and state tables(both senders and recipients)
+QUIT: It send request to terminate the SMTP session
